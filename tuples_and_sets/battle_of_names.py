@@ -23,12 +23,15 @@ for i in range(1, n + 1):
     else:
         odd_set.add(name_result)
 
-even_list = list(sorted(even_set, key=lambda x: -x))
-odd_list = list(sorted(odd_set, key=lambda x: -x))
+sum_even = sum(even_set)
+sum_odd = sum(odd_set)
 
-if sum(even_set) == sum(odd_list):
-    print(*even_list, *odd_list, sep=", ")
-elif sum(even_list) > sum(odd_list):
-    print(*even_list, *odd_list, sep=", ")
-elif sum(even_list) < sum(odd_list):
-    print(*odd_list, sep=", ")
+if sum_even == sum_odd:
+    result = even_set.union(odd_set)
+    print(*result, sep=", ")
+elif sum_even > sum_odd:
+    result = even_set.symmetric_difference(odd_set)
+    print(*result, sep=", ")
+elif sum_even < sum_odd:
+    result = odd_set.difference(even_set)
+    print(*result, sep=", ")
