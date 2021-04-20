@@ -19,7 +19,7 @@ def swap(iterable_1, iterable_2):
         value_two = iterable_1[r2][c2]
         iterable_1[r1][c1] = value_two
         iterable_1[r2][c2] = value_one
-    except:
+    except IndexError:
         return False
     return True
 
