@@ -1,18 +1,15 @@
-def count_symbols(string):
-    result = {}
-    for el in string:
-        result[el] = string.count(el)
-    return result
+def get_count_of_chars(word):
+    char_count = {}
+    for el in word:
+        char_count[el] = word.count(el)
+    return char_count
 
 
-def print_result(collection):
-    for element, count in collection:
-        print(f"{element}: {count} time/s")
+def format_result(iterable):
+    return [f"{key}: {value} time/s" for key, value in iterable.items()]
 
 
-def sort_symbols(collection):
-    return sorted(collection.items(), key=lambda x: x[0])
-
-
-symbols_in_string = sort_symbols(count_symbols(input()))
-print_result(symbols_in_string)
+line = input()
+characters = get_count_of_chars(line)
+sorted_characters = dict(sorted(characters.items(), key=lambda x: x))
+print(*format_result(sorted_characters), sep='\n')
