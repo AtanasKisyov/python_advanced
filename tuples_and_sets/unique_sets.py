@@ -1,17 +1,10 @@
-def get_set(lenght):
-    result = set()
-    for _ in range(lenght):
-        result.add(int(input()))
-    return result
+def get_collection(n):
+    return {int(input()) for _ in range(n)}
 
 
-def print_unique_nums(batch_1, batch_2):
-    nums = batch_1.intersection(batch_2)
-    for num in nums:
-        print(num)
+first, second = input().split()
+first, second = int(first), int(second)
 
-
-lenght_set_1, lenght_set_2 = input().split()
-set_1 = get_set(int(lenght_set_1))
-set_2 = get_set(int(lenght_set_2))
-print_unique_nums(set_1, set_2)
+first_set = get_collection(first)
+second_set = get_collection(second)
+print(*first_set.intersection(second_set), sep="\n")
