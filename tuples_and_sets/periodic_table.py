@@ -1,14 +1,10 @@
-def get_unique_chemicals(num):
-    result = set()
-    for _ in range(num):
-        result.update(input().split())
-    return result
+def get_collection(n):
+    res = set()
+    for _ in range(n):
+        current_line = input().split()
+        res.update({el for el in current_line})
+    return res
 
 
-def print_result(collection):
-    for element in collection:
-        print(element)
-
-
-chemicals = get_unique_chemicals(int(input()))
-print_result(chemicals)
+chemicals = get_collection(int(input()))
+print(*chemicals, sep="\n")
