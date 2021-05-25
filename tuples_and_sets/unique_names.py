@@ -1,7 +1,6 @@
-def print_result(collection):
-    for el in collection:
-        print(el)
+def get_collection(n):
+    return {input() for _ in range(n)}
 
 
-result = set([input() for name in range(int(input()))])
-print_result(result)
+names = get_collection(int(input()))
+print(*names, sep="\n")
